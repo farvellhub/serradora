@@ -1,0 +1,47 @@
+.contact {
+    font-family: "Montserrat", sans-serif;
+
+    h3 { padding-bottom: $title; }
+}
+
+.contact-input,
+.contact-submit {
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $black;
+}
+
+.contact-description,
+.contact-date {
+    padding: 0 $title $title 0;
+}
+
+.contact-wrapper .wrapper-title,
+.contact-description,
+.contact-date,
+.contact-input,
+.contact-submit,
+.social-links {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.contact-submit {
+    color: $white;
+    background-color: rgb(73, 98, 126);
+
+    &:hover { background-color: rgb(54, 72, 94); }
+    &:active { background-color: rgb(57, 70, 85) }
+}
+
+.social-links {
+    text-align: center;
+    padding: $big-title 0 $title 0;
+
+    i {
+        font-size: $padding;
+        padding: $title;
+        color: $black;
+    }
+}

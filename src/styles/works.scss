@@ -1,0 +1,30 @@
+.works-item {
+    width: 100%;
+    padding: 0 $padding $padding 0;
+    font-size: $title;
+    font-family: "Montserrat", sans-serif;
+}
+
+.works-title { 
+    padding-bottom: $title; 
+}
+
+.works-image {
+    margin: 0 auto;
+    max-width: 84vw;
+    max-height: 50vh;
+    cursor: pointer;
+    
+    &:hover {
+        border: 2px solid transparent;
+        filter: grayscale( 20% ) blur( 1px );
+        transition: all 0.1s ease-in-out;
+    }
+}
+
+@media screen and ( min-width: $break ) {
+    .works-wrapper{
+        display: flex;
+        overflow-x: scroll;
+    }
+}
