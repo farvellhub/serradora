@@ -1,6 +1,6 @@
 # Serradora
 
-Template of portfolio web focused on minimalism design. Full responsive.
+Modern carpentry web template on minimalism design. Full responsive.
 
 
 # Where to start.
