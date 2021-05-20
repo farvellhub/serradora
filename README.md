@@ -1,4 +1,5 @@
 # Serradora
+
 Template of portfolio web focused on minimalism design. Full responsive.
 
 
@@ -15,11 +16,13 @@ The last command above starts a webpack live server. You can also run `npm run-s
 
 # Directories
 
-· `/public/build`: Bundle of all js/scss archives.
+· `/public/build`: Webpack bundle.
 
-· `/public/icomoon`: Icomoon fonts and styles.
+· `/src/api`: Js modules.
 
-· `/src`: Js/Scss classes are here.
+· `/src/styles`: Scss classes.
+
+· `/src/main.js`: Entry point.
 
 
 Feel free to use it. :)
