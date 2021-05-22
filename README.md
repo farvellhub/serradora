@@ -1,6 +1,6 @@
 # Serradora
 
-Modern carpentry web template on minimalism design. Full responsive.
+Modern carpentry web template designed on minimalism design. Full responsive.
 
 
 # Where to start.
