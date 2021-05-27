@@ -8,7 +8,7 @@ Modern carpentry web template designed on minimalism design. Full responsive.
 Run these scripts at the root directory.
 
     - `npm install`
-    - `npm run-script start`
+    - `npm run-script serve`
     - `npm run-script watch`
 
 The last command above starts a webpack live server. You can also run `npm run-script build`.
