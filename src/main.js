@@ -1,66 +1,54 @@
 // Import modules
-import Handler from "./api/eventHandler";
-import Parallax from "./api/parallaxText";
-
+import { Handler, Parallax } from "@farvell/jflow-core";
 // Webpack styles
 import "./styles/index.scss";
 
 const initMenu = () => {
-    return new Promise(( resolve ) => {
-        const menu = new Handler({
-            element: "menu",
-            css: [ "disappear", "appear" ]
-        });
+	const menu = new Handler({
+		element: "menu",
+		css: ["disappear", "appear"]
+	});
 
-        resolve( menu.onClick( "menu-trigger" ) );
-    });
+	return menu.onClick("menu-trigger");
 };
 
 const initLoader = () => {
-    return new Promise(( resolve ) => {
-        const loader = new Handler({
-            element: "loader",
-            css: "disappear"
-        });
+	const loader = new Handler({
+		element: "loader",
+		css: "disappear"
+	});
 
-        resolve( loader.onTimeout( 1200 ) );
-    });
+	return loader.onTimeout(1200);
 };
 
 const initHeader = () => {
-    return new Promise(( resolve ) => {
-        const header = new Handler({
-            element: "header",
-            css: [ "transparence", "opaque" ]
-        });
+	const header = new Handler({
+		element: "header",
+		css: ["transparence", "opaque"]
+	});
 
-        const offset = document.documentElement.clientHeight;
-        resolve( header.onScroll( offset - 100 ) );
-    });
+	const offset = document.documentElement.clientHeight;
+	return header.onScroll(offset - 100);
 };
 
 const initSlogan = () => {
-    return new Promise(( resolve ) => {
-        const parallax = new Parallax( "slogan", 1.2 );
-        resolve( parallax.serve() )
-    });
+	const parallax = new Parallax("slogan", 1.2);
+	return parallax.serve();
 };
 
 const initInfo = () => {
-    return new Promise(( resolve ) => {
-        const minOffset = document.documentElement.clientHeight,
-            info = new Parallax( "info-body", -1.2, minOffset );
-        resolve( info.serve() )
-    });
+	const minOffset = document.documentElement.clientHeight,
+		info = new Parallax("info-body", -1.2, minOffset);
+	return info.serve();
 };
 
 // Main function.
 window.addEventListener("load", () => {
-    initMenu()
-        .then( initLoader() )
-        .then( initHeader() )
-        .then( initSlogan() )
-        .then( initInfo() );
+	initMenu()
+		.then(initLoader())
+		.then(initHeader())
+		.then(initSlogan())
+		.then(initInfo());
 });
 
 console.log("Hot reloading...");

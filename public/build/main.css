@@ -176,7 +176,7 @@ textarea {
 .button {
   font-size: 1.8rem;
   cursor: pointer;
-  color: #F2EFEA;
+  color: #fdfcfa;
 }
 .button:hover {
   color: #bac6b4;
@@ -202,11 +202,11 @@ textarea {
   width: 64px;
   height: 64px;
   margin: 8px;
-  border: 3px solid #F2EFEA;
+  border: 3px solid #fdfcfa;
   border-radius: 50%;
   -webkit-animation: ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
           animation: ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #F2EFEA transparent transparent transparent;
+  border-color: #fdfcfa transparent transparent transparent;
 }
 
 .loader div:nth-child(1) {
@@ -247,7 +247,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #F2EFEA;
+  color: #fdfcfa;
   z-index: 1000;
 }
 
@@ -291,7 +291,7 @@ textarea {
 
 .home-image {
   height: 100vh;
-  background: #F2EFEA fixed no-repeat 50% 50%;
+  background: #fdfcfa fixed no-repeat 50% 50%;
   background-image: url(e64302cb9233d4c1e2865ae0493ad06e.jpeg);
   background-size: cover;
 }
@@ -301,7 +301,7 @@ textarea {
   font-size: 1.8rem;
   font-family: "Montserrat", sans-serif;
   text-align: center;
-  color: #F2EFEA;
+  color: #fdfcfa;
   background-color: rgba(10, 12, 9, 0.8);
 }
 
@@ -321,7 +321,7 @@ textarea {
   padding: 3rem;
   text-align: center;
   font-size: 1.8rem;
-  background-color: rgba(242, 239, 234, 0.8);
+  background-color: rgba(253, 252, 250, 0.8);
 }
 
 .works-item {
@@ -384,7 +384,7 @@ textarea {
 }
 
 .contact-submit {
-  color: #F2EFEA;
+  color: #fdfcfa;
   background-color: #49627e;
 }
 .contact-submit:hover {
