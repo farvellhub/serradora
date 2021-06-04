@@ -12,13 +12,11 @@ Modern carpentry web template designed on minimalism design. Full responsive. Us
 
 · `babel7` as ES7 transpiler.
 
-=======
 Template of portfolio web focused on minimalism design. Full responsive.
 
 
 # Where to start.
 
-=======
 
 Download the `.zip` and extract it to your project folder.
 
@@ -30,7 +28,7 @@ Run these scripts at the root directory.
 The last command above starts a webpack live server.
 
 Run `npm run-script build` to run development build. You can also run `npm run build-prod` for production environment.
-=======
+
 Run these scripts at the root directory.
 
     - `npm install`
@@ -38,11 +36,11 @@ Run these scripts at the root directory.
     - `npm run-script watch`
 
 The last command above starts a webpack live server. You can also run `npm run-script build`.
-=======
+
 
 # Directories
 
-=======
+
 
 · `/public/build`: Webpack bundle.
 
@@ -52,7 +50,7 @@ The last command above starts a webpack live server. You can also run `npm run-s
 
 · `/src/main.js`: Entry point.
 
-=======
+
 
 · `/public/build`: Bundle of all js/scss archives.
 
@@ -60,7 +58,6 @@ The last command above starts a webpack live server. You can also run `npm run-s
 
 · `/src`: Js/Scss classes are here.
 
-=======
 
 
 Feel free to use it. :)
