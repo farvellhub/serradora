@@ -1,200 +1,578 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/api/eventHandler.js":
-/*!*********************************!*\
-  !*** ./src/api/eventHandler.js ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./node_modules/@farvell/jflow-core/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/@farvell/jflow-core/index.js ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Handler)
-/* harmony export */ });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+// Import library with common.js
+const Handler = __webpack_require__( /*! ./src/eventHandler */ "./node_modules/@farvell/jflow-core/src/eventHandler.js" ),
+    Lightbox = __webpack_require__( /*! ./src/Lightbox/lightbox */ "./node_modules/@farvell/jflow-core/src/Lightbox/lightbox.js" ),
+    Parallax = __webpack_require__( /*! ./src/parallaxText */ "./node_modules/@farvell/jflow-core/src/parallaxText.js" ),
+	Style = __webpack_require__( /*! ./src/style */ "./node_modules/@farvell/jflow-core/src/style.js" );
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-/* API Css animations */
-var Handler = /*#__PURE__*/function () {
-  function Handler() {
-    _classCallCheck(this, Handler);
-
-    this.animations = [];
-
-    for (var _len = arguments.length, animations = new Array(_len), _key = 0; _key < _len; _key++) {
-      animations[_key] = arguments[_key];
-    }
-
-    this._initAnimations(animations);
-
-    return Object.freeze(Object.create({
-      onTimeout: this.onTimeout.bind(this),
-      onClick: this.onClick.bind(this),
-      onScroll: this.onScroll.bind(this)
-    }));
-  }
-
-  _createClass(Handler, [{
-    key: "_initAnimations",
-    value: function _initAnimations(animations) {
-      var _this = this;
-
-      animations.forEach(function (a, i) {
-        _this.animations.push({
-          element: document.getElementById(a.element),
-          css: Array.isArray(a.css) ? a.css : [a.css]
-        });
-
-        _this._setDefaultAnimation(i);
-      });
-    }
-  }, {
-    key: "_setDefaultAnimation",
-    value: function _setDefaultAnimation(index) {
-      var animation = this.animations[index],
-          element = animation.element,
-          css = animation.css;
-      if (css.length > 1) this._toggleAnimation(element, css[0]);
-    }
-  }, {
-    key: "_toggleAnimation",
-    value: function _toggleAnimation(element, css) {
-      element.classList.toggle(css);
-    }
-  }, {
-    key: "_animate",
-    value: function _animate() {
-      var _this2 = this;
-
-      this.animations.forEach(function (animation) {
-        animation.css.forEach(function (cssName) {
-          _this2._toggleAnimation(animation.element, cssName);
-        });
-      });
-    }
-  }, {
-    key: "onTimeout",
-    value: function onTimeout(time) {
-      var _this3 = this;
-
-      setTimeout(function () {
-        _this3._animate();
-      }, time);
-      return this;
-    }
-  }, {
-    key: "onClick",
-    value: function onClick(controls) {
-      var _this4 = this;
-
-      var keys = document.querySelectorAll(".".concat(controls));
-      keys.forEach(function (e) {
-        e.addEventListener("click", function () {
-          _this4._animate();
-        });
-      });
-      return this;
-    }
-  }, {
-    key: "_initScroll",
-    value: function _initScroll(offset) {
-      if (window.scrollY >= offset) {
-        this._animate();
-
-        return true;
-      }
-
-      return false;
-    }
-  }, {
-    key: "onScroll",
-    value: function onScroll(offset) {
-      var _this5 = this;
-
-      var scrolled = this._initScroll(offset);
-
-      document.addEventListener("scroll", function () {
-        var scroll = window.scrollY;
-
-        if (scroll <= offset && scrolled || scroll >= offset && !scrolled) {
-          scrolled = !scrolled;
-
-          _this5._animate();
-        }
-      });
-      return this;
-    }
-  }]);
-
-  return Handler;
-}();
-
+module.exports = {
+    Handler,
+	Style,
+    Lightbox,
+    Parallax
+};
 
 
 /***/ }),
 
-/***/ "./src/api/parallaxText.js":
-/*!*********************************!*\
-  !*** ./src/api/parallaxText.js ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./node_modules/@farvell/jflow-core/src/Lightbox/lightbox.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@farvell/jflow-core/src/Lightbox/lightbox.js ***!
+  \*******************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Parallax)
-/* harmony export */ });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+const LightboxHandler = __webpack_require__( /*! ./lightboxHandler */ "./node_modules/@farvell/jflow-core/src/Lightbox/lightboxHandler.js" ),
+	LightboxConstructor = __webpack_require__( /*! ./lightboxConstructor */ "./node_modules/@farvell/jflow-core/src/Lightbox/lightboxConstructor.js" );
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+// Lightbox logic and constructor
+module.exports = class Lightbox {
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+    // fetching data classes to control lightbox
+    constructor( config ) {
+        // Set param config
+		this.config = new LightboxConstructor( config );
+
+        // Initializing handler
+        this.handler = new LightboxHandler({
+            element: "lightbox",
+            css: config.css
+        });
+
+        // Init roullette of images
+        this._initRoullette();
+
+        // Return listen lightbox
+        return this.listen();
+    }
+
+    // initializing roullette from fetched images
+    _initRoullette() {
+        this.config.images.forEach(( img, index ) => {
+            const image = img.cloneNode(),
+                text = this.config.texts[ index ];
+
+            // Reset image element to lightbox css classes
+            image.classList.remove( ...image.classList );
+            image.classList.add( "roullette-image", this.control );
+
+            // Pushing images to roullete
+            this.config.roullette.img.appendChild( image );
+            this.config.roullette.txt.push( text.textContent );
+        });
+
+        // Finally sets the lightbox size to length of roullette
+        this.lightboxSize = this.config.roullette.txt.length;
+    }
+
+    // SETTERS
+    _setPhoto( src ) { this.config.lightbox.photo.src = src; }
+    _setCaption( text ) { this.config.lightbox.caption.textContent = text; }
+
+    // Update position ( certain positions are conditioned buttons )
+    _setLastPosition( position ) { this.lastPosition = position; }
+
+    _updateFromAll( position ) {
+        const photo = this.config.roullette.img.children,
+            caption = this.config.roullette.txt;
+
+        this._setPhoto( photo.position.src );
+        this._setCaption( caption.position );
+    }
+
+    // Update from previous button
+    _updateFromPrevious() {
+        const position = this.lastPosition > 0
+            ? --this.lastPosition 
+            : this.lightboxSize;
+
+        this._updateFromAll( position );
+        
+        return position;
+    }
+
+    // Update from next button
+    _updateFromNext() {
+        const position = this.lastPosition < this.lightboxSize
+            ? ++this.lastPosition 
+            : 0;
+
+        this._updateFromAll( position );
+
+        return position;
+    }
+
+    // Update from roullete image
+    _updateFromRoullette( index ) {
+        const length = this.config.conditions.length,
+            position = index - length;
+
+        this._updateFromAll( position );
+
+        return position;
+    }
+
+    // Update from grid of images
+    _updateFromImages( index ) {
+        const length = this.config.conditions.length,
+            position = ( index - this.lightboxSize)  - length;
+
+        this._updateFromAll( position );
+
+        return position;
+    }
+
+    // If conditions return True
+    _validUpdate ( classList, name ) {
+        const conditions = this.config.conditions;
+
+        return classList.contains( conditions.name );
+    }
+
+    // Route depending on position
+    _updateFrom( classList, index ) {
+        let position;
+
+        if ( this._validUpdate( classList, "roullette" ) ) {
+            position = this._updateFromRoullette(index);
+
+        } else if ( this._validUpdate( classList, "previous" ) ) {
+            position = this._updateFromPrevious();
+
+        } else if ( this._validUpdate( classList, "next" ) ) {
+            position = this._updateFromNext();
+
+        } else { position = this._updateFromImages( index ); }
+
+        this._setLastPosition( position );
+    }
+
+    // Update state from all conditions
+    _update() {
+        
+        const lastClick = this.handler.lastClicked(),
+            classList = lastClick.element.classList;
+            
+        if ( classList.contains( this.config.exit ) ) return;
+
+        this._updateFrom( classList, lastClick.index );
+    }
+
+    // Listener handler
+    async listen() {
+        this.handler.setAfterFunc( this._update, this ); 
+        return this.handler.onClick( this.config.control, this.conditions )
+			.then( console.log( "Lightbox is working!" ) );
+    }
+}
+
+/***/ }),
+
+/***/ "./node_modules/@farvell/jflow-core/src/Lightbox/lightboxConstructor.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@farvell/jflow-core/src/Lightbox/lightboxConstructor.js ***!
+  \******************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const Style = __webpack_require__( /*! ../style */ "./node_modules/@farvell/jflow-core/src/style.js" );
+
+// Lightbox DOM constructor
+module.exports = class LightboxConstructor {
+	constructor( config ) {
+		this._createLightbox();
+		this._styleLightbox( config.color );
+		
+		return this._setLightboxConfig( config )
+	}
+	
+    // Setting lightbox properties
+	_setLightboxConfig( config ) {
+		return {
+			images: [ ...document.getElementsByClassName( config.images ) ],
+			texts: [ ...document.getElementsByClassName( config.texts ) ],
+			lightbox: {
+				photo: document.getElementById( "lighbox-photo" ),
+				caption: document.getElementById( "lightbox-caption" ),
+			},
+			roullette: {
+				img: document.getElementById( "lightbox-roullette" ),
+				txt: []
+			},
+			control: "lightbox-control",
+        	exit: "lightbox-close",
+        	conditions: {
+           		roullette: "roullette-image",
+            	previous: "previous-button", 
+            	next: "next-button",
+            	length: 2
+			}
+        };
+	}
+
+	// Putting lightbox html to DOM
+	_createLightbox() {
+		const wrapper = document.createElement( "section" );
+		
+		wrapper.setAttribute( "id", "lightbox" );
+		wrapper.setAttribute( "class", "fixed-wrapper lightbox-wrapper" );
+
+		wrapper.innerHTML += `
+			<span class="button fixed-button lightbox-close lightbox-control">x</span>
+
+			<section class="wrapper lightbox">
+				<figure class="wrapper lightbox-photo-wrapper">
+					<article class="lightbox-previous">
+						<span class="button lightbox-button vertical-align previous-button lightbox-control"><</span>
+					</article>
+					<img id="lightbox-photo" class="lightbox-photo all-align" src="#" alt="lightbox-main-photo">
+					<article class="lightbox-next">
+						<span class="button lightbox-button vertical-align next-button lightbox-control"><</span>
+					</article>
+				</figure>
+			</section>
+
+			<p id="lightbox-caption" class="horizontal-align lightbox-caption"></p>
+			<nav id="lightbox-roullette" class="horizontal-align roullette"></nav>
+		`;
+		
+		document.body.style.position = "relative";
+		document.body.appendChild( wrapper );
+	}
+
+	_styleLightbox( color = "#1d1d1d" ) {
+		new Style({
+
+			backgroundColor: color
+
+		}).setStyles( "lightbox-wrapper" );
+	}
+}
+
+/***/ }),
+
+/***/ "./node_modules/@farvell/jflow-core/src/Lightbox/lightboxHandler.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@farvell/jflow-core/src/Lightbox/lightboxHandler.js ***!
+  \**************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+const Handler = __webpack_require__(/*! ../eventHandler */ "./node_modules/@farvell/jflow-core/src/eventHandler.js");
+
+// Lightbox event handler 
+module.exports = class LightboxHandler extends Handler {
+
+    // ... Animation { element: idName, css: className || [className] }
+    constructor( ...animations ) {
+
+        // Init animations.
+        super( animations );
+
+        // Return function to Lightbox logic
+        return Object.freeze(Object.create({
+
+            setAfterFunc: this.setAfterFunc.bind( this ),
+            lastClicked: this.lastClicked.bind( this ),
+            onClick: this.onClick.bind( this )
+
+        }));
+    }
+
+    // Needs for logic in Lightbox, controls roullette updates
+    setAfterFunc( func, that, ...args ) {
+        this._afterFunc = () => {
+            if ( typeof func == "function"
+                && typeof that == "object" )
+                return that[ func.name ]( args );
+        };
+
+        return this;
+    }
+
+    // Only update animation if its condition returns true
+    _isConditioned( conditions ) {
+        if ( conditions === null ) return false;
+            
+        const classList = this.lastClick.element.classList;
+        let isConditioned = false;
+
+        Object.keys( conditions ).forEach(( c ) => {
+            if ( classList.contains( conditions[ c ] ) ) 
+                isConditioned = true;
+        });
+
+        return isConditioned;
+    }
+
+    // Controls if have conditions
+    _trigger( conditions ) {
+        if ( this._isConditioned( conditions ) ) return;
+
+        this._animate();
+    }
+
+    // Execute all functions atached to the event
+    _execution( conditions = null ) {
+        this._trigger( conditions );
+        
+        if ( typeof this._afterFunc === "function" )
+            this._afterFunc();
+    }
+
+    // Needs in Lightbox class, return last clicked element
+    lastClicked() { return this.lastClick; }
+
+    // Each click updates lastClick variable 
+    async onClick( controls, conditions ) {
+        const keys = document.querySelectorAll( `.${controls}` );
+
+        keys.forEach(( e, i ) => {
+            e.addEventListener("click", () => {
+                this.lastClick = { 
+                    "element": e,
+                    "index": (i - 1) 
+                };
+
+                this._execution( conditions );
+            });
+        });
+
+        return this;
+    }
+}
+
+/***/ }),
+
+/***/ "./node_modules/@farvell/jflow-core/src/eventHandler.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@farvell/jflow-core/src/eventHandler.js ***!
+  \**************************************************************/
+/***/ ((module) => {
+
+// Generic handler
+module.exports = class Handler {
+
+    // Animation { element: idName, css: className || [className] }
+    constructor( ...animations ) {
+        
+        this.animations = [];
+        this._initAnimations( animations );
+
+        // Return event methods
+        return Object.freeze(Object.create({
+
+            onTimeout: this.onTimeout.bind( this ),
+            onClick: this.onClick.bind( this ),
+            onScroll: this.onScroll.bind( this )
+
+        }));
+    }
+
+    // Setting animations object and css array
+    _initAnimations( animations ) {
+        animations.forEach(( anim, index ) => {
+            this.animations.push({
+                element: document.getElementById( anim.element ),
+                css: Array.isArray( anim.css ) ? anim.css : [ anim.css ]
+            });
+
+            this._setDefaultAnimation( index );
+        });
+    }
+
+    // If css provided is not an array
+    _setDefaultAnimation( index ) {
+		const animation = this.animations[ index ],
+			element = animation.element,
+			css = animation.css;
+
+		if ( css.length > 1 ) this._toggleAnimation( element, css[0] );
+    }
+
+    // Toggle class list item
+    _toggleAnimation( element, css ) { element.classList.toggle( css ); }
+
+    // For each animation, animate
+    _animate() {
+        this.animations.forEach(( animation ) => {
+            animation.css.forEach(( cssName ) => {
+                this._toggleAnimation( animation.element, cssName );
+            });        
+        });
+    }
+
+    // Timeout event, animate given time
+    async onTimeout( time ) {
+        const timer = setTimeout(() => {
+            this._animate();
+        }, time);
+		
+        return this;
+    }
+
+    // Click event triggers animation
+    async onClick( controls ) {
+        const keys = document.querySelectorAll( `.${controls}` );
+
+        keys.forEach(( trigger ) => {
+            trigger.addEventListener("click", ( e ) => {
+				e.stopPropagation();
+                this._animate();
+            });
+        });
+
+        return this;
+    }
+
+	// If Offset is inside conditions, animate
+	_triggerScroll( scroll, offset, scrolled ) {
+		if (( scroll <= offset && scrolled ) || 
+            ( scroll >= offset && !scrolled )) {
+                
+            this._animate();
+			return !scrolled;
+        }
+
+		return scrolled;
+	}
+
+    // Controls scroll when loads document
+    _initScroll( offset ) {
+        if ( window.scrollY >= offset ) {
+            this._animate();
+            return true;
+        }
+
+        return false;
+    }
+
+    // Scroll event triggers animation
+    async onScroll( offset ) {
+        let scrolled = this._initScroll( offset );
+
+        document.addEventListener("scroll", () => {
+            const scroll = window.scrollY;
+			scrolled = this.triggerScroll( scroll, offset, scrolled );
+        });
+
+        return this;
+    }
+
+}
+
+/***/ }),
+
+/***/ "./node_modules/@farvell/jflow-core/src/parallaxText.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@farvell/jflow-core/src/parallaxText.js ***!
+  \**************************************************************/
+/***/ ((module) => {
 
 /* Parallax movement */
-var Parallax = /*#__PURE__*/function () {
-  function Parallax(target) {
-    var direction = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
-    var minOffset = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+module.exports = class Parallax {
 
-    _classCallCheck(this, Parallax);
+    // ... HTMLElement, dir 1 = up | -1 = down, minOffset in pixels to active scroll
+    constructor( ...config ) {       
+        
+        // Init multiple configs
+        this.config = [];
+        this._initConfig( config );
+        // Need updates movement at restart
+        // Prevents charging scroll at re-render position
+        this._updateMovement();
 
-    this.target = document.getElementById(target);
-    this.direction = direction;
-    this.minOffset = minOffset;
+        // Return listen to move scroll
+        return Object.freeze(Object.create({
 
-    this._updateMovement();
+            listen: this.listen.bind( this )
 
-    return Object.freeze(Object.create({
-      serve: this.serve.bind(this)
-    }));
-  }
-
-  _createClass(Parallax, [{
-    key: "_updateMovement",
-    value: function _updateMovement() {
-      var offset = window.scrollY,
-          style = this.target.style,
-          movement = (offset - this.minOffset) * this.direction;
-      if (offset > this.minOffset) style.transform = "translateY( ".concat(movement, "px)");
+        }));
     }
-  }, {
-    key: "serve",
-    value: function serve() {
-      var _this = this;
 
-      window.addEventListener("scroll", function () {
-        _this._updateMovement();
-      });
+	// Sets config params scroll direction, speed , offset
+    _initConfig( config ) {
+        config.forEach(( parallax ) => {
+            this.config.push({
+                target: document.getElementById( parallax.target ),
+                direction: parallax.direction,
+                offset: ( parallax.offset ? value.offset : 0 )
+            });
+        });
     }
-  }]);
 
-  return Parallax;
-}();
+    // Updates movement relative on direction and offset
+    _updateMovement( offset = window.scrollY ) {
+        // For each parallax configuration object
+        this.config.forEach(( value ) => {
+            const style = value.target.style,
+                movement = ( offset - value.offset ) * value.direction;
+
+            // Only executes if offset arrives to minOffset
+            if ( offset >= value.offset )
+                style.transform = `translateY( ${ movement }px)`;
+        });
+    }
+
+	// Real scroll param with request Animation
+    _render( offset ) {
+        window.requestAnimationFrame(() => {
+            this._updateMovement( offset );
+        })
+    }
+
+    // Event handler for scroll
+    async listen() {
+        window.addEventListener("scroll", () => {
+            const offset = window.scrollY;
+            this._render( offset );
+        });
+    }
+    
+}
 
 
+/***/ }),
+
+/***/ "./node_modules/@farvell/jflow-core/src/style.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@farvell/jflow-core/src/style.js ***!
+  \*******************************************************/
+/***/ ((module) => {
+
+// Converts style objetcs into html props.
+module.exports = class Style {
+	constructor( styles ) {
+		// Object containig style keys
+		this.styles = styles;
+
+		// Return set styles
+		return Object.freeze(Object.create({
+
+			setStyles: this.setStyles.bind( this )
+
+		}));
+
+	}
+
+	// Set styles to targets clasName
+	setStyles( className ) {
+		this.elements = [ ...document.getElementsByClassName( className ) ];
+
+		this.elements.forEach(( element ) => {
+			Object.keys( this.styles ).forEach(( key ) => {
+				element.style.key = this.styles.key;
+			});
+		});
+
+		return this.elements;
+	}
+}
 
 /***/ }),
 
@@ -204,6 +582,7 @@ var Parallax = /*#__PURE__*/function () {
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -236,6 +615,18 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -266,65 +657,55 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 /*!*********************!*\
   !*** ./src/main.js ***!
   \*********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _api_eventHandler__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api/eventHandler */ "./src/api/eventHandler.js");
-/* harmony import */ var _api_parallaxText__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./api/parallaxText */ "./src/api/parallaxText.js");
-/* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/index.scss */ "./src/styles/index.scss");
+/* harmony import */ var _farvell_jflow_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @farvell/jflow-core */ "./node_modules/@farvell/jflow-core/index.js");
+/* harmony import */ var _farvell_jflow_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_farvell_jflow_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/index.scss */ "./src/styles/index.scss");
 // Import modules
-
  // Webpack styles
 
 
 
 var initMenu = function initMenu() {
-  return new Promise(function (resolve) {
-    var menu = new _api_eventHandler__WEBPACK_IMPORTED_MODULE_0__.default({
-      element: "menu",
-      css: ["disappear", "appear"]
-    });
-    resolve(menu.onClick("menu-trigger"));
+  var menu = new _farvell_jflow_core__WEBPACK_IMPORTED_MODULE_0__.Handler({
+    element: "menu",
+    css: ["disappear", "appear"]
   });
+  return menu.onClick("menu-trigger");
 };
 
 var initLoader = function initLoader() {
-  return new Promise(function (resolve) {
-    var loader = new _api_eventHandler__WEBPACK_IMPORTED_MODULE_0__.default({
-      element: "loader",
-      css: "disappear"
-    });
-    resolve(loader.onTimeout(1200));
+  var loader = new _farvell_jflow_core__WEBPACK_IMPORTED_MODULE_0__.Handler({
+    element: "loader",
+    css: "disappear"
   });
+  return loader.onTimeout(1200);
 };
 
 var initHeader = function initHeader() {
-  return new Promise(function (resolve) {
-    var header = new _api_eventHandler__WEBPACK_IMPORTED_MODULE_0__.default({
-      element: "header",
-      css: ["transparence", "opaque"]
-    });
-    var offset = document.documentElement.clientHeight;
-    resolve(header.onScroll(offset - 100));
+  var header = new _farvell_jflow_core__WEBPACK_IMPORTED_MODULE_0__.Handler({
+    element: "header",
+    css: ["transparence", "opaque"]
   });
+  var offset = document.documentElement.clientHeight;
+  return header.onScroll(offset - 100);
 };
 
 var initSlogan = function initSlogan() {
-  return new Promise(function (resolve) {
-    var parallax = new _api_parallaxText__WEBPACK_IMPORTED_MODULE_1__.default("slogan", 1.2);
-    resolve(parallax.serve());
-  });
+  var parallax = new _farvell_jflow_core__WEBPACK_IMPORTED_MODULE_0__.Parallax("slogan", 1.2);
+  return parallax.serve();
 };
 
 var initInfo = function initInfo() {
-  return new Promise(function (resolve) {
-    var minOffset = document.documentElement.clientHeight,
-        info = new _api_parallaxText__WEBPACK_IMPORTED_MODULE_1__.default("info-body", -1.2, minOffset);
-    resolve(info.serve());
-  });
+  var minOffset = document.documentElement.clientHeight,
+      info = new _farvell_jflow_core__WEBPACK_IMPORTED_MODULE_0__.Parallax("info-body", -1.2, minOffset);
+  return info.serve();
 }; // Main function.
 
 
