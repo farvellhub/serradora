@@ -29,6 +29,6 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@farvell/jflow-core": "^2.0.9"
+    "@farvell/jflow-core": "^2.0.11"
   }
 }
