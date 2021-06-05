@@ -9,7 +9,7 @@ const initMenu = () => {
 		css: ["disappear", "appear"]
 	});
 
-	return menu.onClick("menu-trigger");
+	return menu.onClick( "menu-trigger" );
 };
 
 const initLoader = () => {
@@ -24,31 +24,40 @@ const initLoader = () => {
 const initHeader = () => {
 	const header = new Handler({
 		element: "header",
-		css: ["transparence", "opaque"]
+		css: [ "transparence", "opaque" ]
 	});
 
 	const offset = document.documentElement.clientHeight;
-	return header.onScroll(offset - 100);
+	return header.onScroll( offset - 100 );
 };
 
 const initSlogan = () => {
-	const parallax = new Parallax("slogan", 1.2);
-	return parallax.serve();
+	const slogan = new Parallax({
+		target: "slogan", 
+		direction: 1.2
+	});
+
+	return slogan.listen();
 };
 
 const initInfo = () => {
-	const minOffset = document.documentElement.clientHeight,
-		info = new Parallax("info-body", -1.2, minOffset);
-	return info.serve();
+	const info = new Parallax({
+		target: "info-body",
+		direction: -1.2,
+		offset: document.documentElement.clientHeight
+	});
+
+	return info.listen();
 };
 
 // Main function.
 window.addEventListener("load", () => {
 	initMenu()
-		.then(initLoader())
-		.then(initHeader())
-		.then(initSlogan())
-		.then(initInfo());
+		.then( initLoader() )
+		.then( initHeader() )
+		.then( initSlogan() )
+		.then( initInfo() )
+		.then( console.log("Working...") );
 });
 
-console.log("Hot reloading...");
+
