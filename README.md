@@ -38,12 +38,6 @@ Run `npm run-script build` to run development build. You can also run `npm run b
 
 · `/src/main.js`: Entry point.
 
-· `/public/build`: Bundle of all js/scss archives.
-
-· `/public/icomoon`: Icomoon fonts and styles.
-
-· `/src`: Js/Scss classes are here.
-
 
 
 Questions?
