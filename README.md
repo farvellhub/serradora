@@ -4,6 +4,7 @@
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg" />
   </a>
+ <a href="https://discord.gg/tpNtcJHw" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
 </p>
 
 > Modern carpentry web template designed on minimalism design. Full responsive. Using Jflow.
@@ -20,23 +21,21 @@
 
 ## Directories
 
-· /public/build: Webpack bundle.
+- /public/build: Webpack bundle.
 
-· /src/modules: Js modules.
+- /src/styles: Scss classes.
 
-· /src/styles: Scss classes.
-
-· /src/main.js: Entry point.
+- /src/main.js: Entry point.
 
 ## Characteristics.
 
-· Webpack5 as bundler.
+- Webpack5 as bundler.
 
-· image post-procesing.
+- image post-procesing.
 
-· post-css as SASS transpiler.
+- post-css as SASS transpiler.
 
-· babel7 as ES7 transpiler.
+- babel7 as ES7 transpiler.
 
 
 ## Show your support
