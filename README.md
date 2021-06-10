@@ -17,9 +17,9 @@
 
 ## Where to start.
 
-- npm run dev - to run development build.
-- npm run-script build to run development build 
-- npm run build-prod for production environment.
+- npm run dev - Run development server.
+- npm run build - Development build 
+- npm run build-prod - Production build deploy.
 
 ## Directories
 
