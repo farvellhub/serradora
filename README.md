@@ -17,7 +17,8 @@
 
 ## Where to start.
 
-- npm run dev - Run development server.
+- npm run serve - Run development server.
+- npm run dev - Watch mode.
 - npm run build - Development build 
 - npm run build-prod - Production build deploy.
 
